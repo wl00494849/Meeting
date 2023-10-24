@@ -3,20 +3,19 @@ import pandas as pd
 from datetime import datetime
 import os
 
-time = datetime.now()
-fileName = f"DataSet/OpenDataSet_{time.year}_{time.month}_{time.day}.csv"
+
 
 def FileCheck(name:str):
     if os.path.isfile(name):
         os.remove(name)
 
-def GetOpenData (): 
+def GetOpenData (fileName:str): 
     domain_Url = 'https://data.gov.tw/api/front/dataset/export?format=csv'
     rep = requests.get(domain_Url)
     FileCheck(fileName)
     open(f"/Users/zhung/py/meeting/{fileName}","wb").write(rep.content)
 
-def NewCSV():
+def NewCSV(fileName:str):
     dt = pd.read_csv(fileName)
     df = pd.DataFrame(dt)
     d = df[["資料集名稱","資料下載網址"]]
@@ -32,8 +31,11 @@ def AnalyzeCSV():
     print(q.values)
 
 def Main():
-    GetOpenData()
-    NewCSV()
+    time = datetime.now()
+    fileName = f"DataSet/OpenDataSet_{time.year}_{time.month}_{time.day}.csv"
+
+    GetOpenData(fileName)
+    NewCSV(fileName)
     AnalyzeCSV()
 
 
