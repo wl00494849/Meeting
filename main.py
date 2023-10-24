@@ -7,7 +7,7 @@ def GetOpenData ():
     rep = requests.get(domain_Url)
     time = datetime.now()
     fileName = f"{time.year}_{time.month}_{time.day}"
-    open(f"/Users/zhung/py/meeting/DataSet/{fileName}","wb").write(rep.content)
+    open(f"/Users/zhung/py/meeting/DataSet/{fileName}.csv","wb").write(rep.content)
     
 def main():
     GetOpenData()
