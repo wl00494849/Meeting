@@ -6,7 +6,8 @@ def GetOpenData ():
     domain_Url = 'https://data.gov.tw/api/front/dataset/export?format=csv'
     rep = requests.get(domain_Url)
     time = datetime.now()
-    open(f"/Users/zhung/py/meeting/DataSet/{time.year}_{time.month}_{time.day}","wb").write(rep.content)
+    fileName = f"{time.year}_{time.month}_{time.day}"
+    open(f"/Users/zhung/py/meeting/DataSet/{fileName}","wb").write(rep.content)
     
 def main():
     GetOpenData()
