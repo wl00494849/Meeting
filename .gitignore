@@ -1,4 +1,4 @@
 /DataSet/*.csv
 *.csv
-*.bin
-*.txt
+tmunlp_1.6B_WB_300dim_2020v1.bin.gz
+Tradition_Chinese.txt.big

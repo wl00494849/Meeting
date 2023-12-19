@@ -18,7 +18,7 @@ def GetOpenData (fileName:str):
 def NewCSV(fileName:str):
     dt = pd.read_csv(fileName)
     df = pd.DataFrame(dt)
-    d = df[["資料集名稱","資料下載網址"]]
+    d = df[["資料集名稱","主要欄位說明","資料下載網址"]]
     FileCheck("new.csv")
     d.to_csv("new.csv")
 
@@ -36,7 +36,7 @@ def Main():
 
     GetOpenData(fileName)
     NewCSV(fileName)
-    AnalyzeCSV()
+    # AnalyzeCSV()
 
 
 Main()
