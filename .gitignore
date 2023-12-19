@@ -1,2 +1,4 @@
 /DataSet/*.csv
 *.csv
+*.bin
+*.txt
